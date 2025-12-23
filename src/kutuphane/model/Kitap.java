@@ -30,6 +30,10 @@ public class Kitap{//Encapsulation
 		return sayfaSayisi;
 	}
 	
+	public String toCSV() {
+		return id+";"+ad+";"+yazar+";"+sayfaSayisi;
+	}
+	
 	//veri değiştirme
 	public boolean isOduncAlindiMi() {
 		return oduncAlindiMi;
@@ -43,4 +47,9 @@ public class Kitap{//Encapsulation
 	public String toString() {
 		return "Kitap:"+ad+"("+yazar+")";
 	}
+	
+	
+	
+	
+	
 }

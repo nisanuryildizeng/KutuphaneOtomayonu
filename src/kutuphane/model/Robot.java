@@ -7,7 +7,7 @@ public Robot(int id,String ad,String soyad) {
 
 @Override
 public void calis() {
-	System.out.println(getAd()+"isimli robot kütüphane raflarini düzenliyor.");
+	System.out.println(getAd()+" isimli robot kütüphane raflarini düzenliyor.");
 }
 
 
