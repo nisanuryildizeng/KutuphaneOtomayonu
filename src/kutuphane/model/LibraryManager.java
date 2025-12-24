@@ -21,5 +21,28 @@ public void listBooks() {
 	}
 }
 
+public Kitap kitapBul(String kitapAdi) {
+	for(Kitap k:books) {
+		if(k.getAd().equalsIgnoreCase(kitapAdi)) {
+			return k;
+		}
+		}
+	return null;
+	}
+
+public void borrowBook(Kitap book,StudentMember student) {
+	if(book.isOduncAlindiMi()) {
+		System.out.println("Hata:'"+book.getAd()+"'kitabı şuan başkasında,verilemez.");
+	}
+	else {
+		book.setOduncAlindiMi(true);
+		System.out.println("BAŞARILI: '"+book.getAd()+"'kitabı,"+student.getName()+"adlı öğrenciye teslim edildi.");
+	}
+	
+	
+}
+
+
+
 
 }
