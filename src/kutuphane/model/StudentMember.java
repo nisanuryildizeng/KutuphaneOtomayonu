@@ -19,7 +19,9 @@ public void returnBook(Kitap book) {
 public String getName() {
 	return name;
 }
-
+public int getOgrenciNo() {
+	return studentId;
+}
 
 
 }

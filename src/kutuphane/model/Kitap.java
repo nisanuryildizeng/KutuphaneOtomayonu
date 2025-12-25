@@ -7,6 +7,15 @@ public class Kitap{//Encapsulation
 	private boolean oduncAlindiMi;
 	
 	
+	private String oduncAlanKisi="";
+	public String getOduncAlanKisi() {
+		return oduncAlanKisi;
+	}
+	public void setOduncAlanKisi(String isim) {
+		this.oduncAlanKisi=isim;
+	}
+	
+	
 	//Constructor
 	public Kitap(int id,String ad,String yazar,int sayfaSayisi) {
 		this.id=id;
