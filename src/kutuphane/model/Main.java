@@ -11,24 +11,6 @@ public static void main(String[]args) {
 	ogrenciListesi.add(new StudentMember("Ayşe",102));
 	ogrenciListesi.add(new StudentMember("Ecrin",146));
 	ogrenciListesi.add(new StudentMember("Sema",442));
-	/*System.out.println("===KÜTÜPHANE SİSTEMİNE HOŞGELDİNİZ===");
-	System.out.println("Lütfen öğrenci numaranızı girin: ");
-	int girilenNo=scanner.nextInt();
-	scanner.nextLine();
-	StudentMember aktifOgrenci=null;
-	for(StudentMember ogr:ogrenciListesi) {
-		if(ogr.getOgrenciNo()==girilenNo) {
-			aktifOgrenci=ogr;
-			break;
-		}
-	}
-	
-	if(aktifOgrenci==null) {
-		System.out.println("Hata: Bu numaraya ait bir öğrenci bulunamadı! Sistemden çıkılıyor.");
-		return;
-	}*/
-	
-	//System.out.println("Hoşgeldin "+aktifOgrenci.getName()+"!İşlem yapabilirsin.\n");
 	
 	StudentMember aktifOgrenci=null;
 	System.out.println("===SİSTEM BAŞLATILIYOR===");
@@ -37,12 +19,6 @@ public static void main(String[]args) {
 	
 	boolean devamEdelimMi=true;
 	
-	
-	
-	
-	
-	
-	
 	while(devamEdelimMi) {
 		System.out.println("\n=============KÜTÜPHANE YÖNETİM PANELİ=============");
 		System.out.println("1.Kitapları Listele(CSV DAhil)");
@@ -50,6 +26,8 @@ public static void main(String[]args) {
 		System.out.println("3.Öğrenci kitap ödünç alsın(Demo)");
 		System.out.println("4.Kitap iade et(Ceza Hesapla)");
 		System.out.println("5.Öğrenci Girişi/Kullancı Değiştir");
+		System.out.println("6.Kitap Ara(İsimle)");
+		System.out.println("7.Sadece Raftakileri Listele");
 		System.out.println("0.Çıkış");
 		System.out.println("Seçiminiz: ");
 		int secim=scanner.nextInt();
@@ -77,7 +55,6 @@ public static void main(String[]args) {
 	    		break;
 	    	}
 	    	System.out.println("\n---Hızlı Ödünç Alma Testi---");
-	    	//StudentMember ogr=new StudentMember("Nisanur",228);
 	    	System.out.println("Sayın "+aktifOgrenci.getName()+",hangi kitabı ödünç almak istersiniz? ");
 	    	System.out.println("Kitap Adı Giriniz: ");
 	    	String istenenKitapAdı=scanner.nextLine();
@@ -89,13 +66,6 @@ public static void main(String[]args) {
 	    		System.out.println("Hata: Kütüphanede '"+istenenKitapAdı+"'isminde bir kitap bulunamadı.");
 	    	}
 	    	
-	    	
-	    	
-	    	
-	    	
-		//StudentMember ogr=new StudentMember("Nisanur",228);
-		//Kitap ornek=new Kitap(99,"Nutuk","Atatürk",600);
-		//ogr.borrowBook(ornek);
 		break;
 		
 	    case 4:
@@ -135,7 +105,14 @@ public static void main(String[]args) {
 	    		System.out.println("HATA:Böyle bir öğrenci numarası yok.");
 	    	}
 	    	break;
-		
+	    case 6:
+	    	System.out.print("Aranacak kitap adını(veya bir kısmını) girin: ");
+	    	String aranacak=scanner.nextLine();
+	    	manager.kitapAra(aranacak);
+	    	break;
+	    case 7:
+	    	manager.raftakileriListele();
+	    	break;
 		case 0:
 			System.out.println("Sistem kapatılıyor.Veriler CSV dosyasında güvende!");
 		devamEdelimMi=false;
@@ -143,12 +120,10 @@ public static void main(String[]args) {
 		default:
 			System.out.println("Hatalı seçim yaptınız,tekrar deneyin.");
 		}
-		
 	}
 	
 	Memur memur1=new Memur(2,"Ahmet","Yılmaz");
 	memur1.calis();
-	
 	
 	scanner.close();
 }

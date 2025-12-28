@@ -40,7 +40,7 @@ public class Kitap{//Encapsulation
 	}
 	
 	public String toCSV() {
-		return id+";"+ad+";"+yazar+";"+sayfaSayisi;
+		return id+";"+ad+";"+yazar+";"+sayfaSayisi+";"+oduncAlindiMi+";"+oduncAlanKisi;//oduncleri sonradan ekledim.
 	}
 	
 	//veri değiştirme
@@ -56,9 +56,4 @@ public class Kitap{//Encapsulation
 	public String toString() {
 		return "Kitap:"+ad+"("+yazar+")";
 	}
-	
-	
-	
-	
-	
 }
