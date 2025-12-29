@@ -3,22 +3,33 @@ package kutuphane.model;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Kitap ekleme,listeleme,odunc verme ,iade alma ve arama islemlerini yonetir.
+ * Verleri bir liste icinde tutar ve yonetir.
+ * Kutuphane otomasyonunun ana beyni gibidir.
+ */
 public class LibraryManager {
 private List<Kitap>books;
 public LibraryManager() {
-	//this.books=new ArrayList<>();
 	this.books=FileManager.dosyadanOku();//üst satır yerine bunu ekledim.
 	if(this.books==null) {
 		this.books=new ArrayList<>();
 	}
 }
-
+/**
+ * Kutuphaneye yeni bir kitap ekler.
+ * Eklenen kitabı listeye kaydeder ve kalici olmasi icin dosyaya yazar.
+ * @param book Eklenecek olan Kitap nesnesi
+ */
 public void addBook(Kitap book) {
 	books.add(book);
 	System.out.println("System:'"+book.getAd()+"'Kütüphane envanterine eklendi.");
 	FileManager.dosyaYaz(books);
 }
+/**
+ * Kutuphanedeki tum kitaplari (odunc verilenler dahil) ekrana listeler.
+ * Kitaplarin ID,isim,yazar ve durum bilgilerini gosterir.
+ */
 public void listBooks() {
 	System.out.println("\n---Kütüphane Arşivi---");
 	for(Kitap book:books) {
@@ -34,17 +45,12 @@ public Kitap kitapBul(String kitapAdi) {
 		}
 	return null;
 	}
-
-/*public void borrowBook(Kitap book,StudentMember student) {
-	if(book.isOduncAlindiMi()) {
-		System.out.println("Hata:'"+book.getAd()+"'kitabı şuan başkasında,verilemez.");
-	}
-	else {
-		book.setOduncAlindiMi(true);
-		System.out.println("BAŞARILI: '"+book.getAd()+"'kitabı,"+student.getName()+" adlı öğrenciye teslim edildi.");
-	}
-	
-}*/
+/**
+ * Bir ogrencinin kitap odunc almasini saglar.
+ * Eger kitap raftaysa ogrenciye verir,baskasindaysa uyari gosterir.
+ * @param book Istenen kitap nesnesi
+ * @param student student Kitabi almak isteyen ogrenci
+ */
 public void borrowBook(Kitap book,StudentMember student) {
 	if(book.isOduncAlindiMi()) {
 		System.out.println("HATA: '"+book.getAd()+"kitabı verilemez!");
@@ -57,6 +63,14 @@ public void borrowBook(Kitap book,StudentMember student) {
 	FileManager.dosyaYaz(books);
 }
 }
+/**
+ * Kitap iade islemlerini gerceklestirir.
+ * Kitabin kac gun sonra getirildigine bakarak gecikme cezasi hesaplar.
+ * Kitabin durumunu tekrar 'Rafta' olarak gunceller.
+ * @param book Iade edilen kitap
+ * @param student Iade eden ogrenci
+ * @param gunSayisi Kitabin kac gun sureyle kaldigi
+ */
 public void returnBook(Kitap book,StudentMember student,int gunSayisi) {
 	int izinSure=15;
 	int gunlukCeza=5;
@@ -74,7 +88,11 @@ public void returnBook(Kitap book,StudentMember student,int gunSayisi) {
 	System.out.println("BAŞARILI: '"+book.getAd()+"'kitabı envantere geri eklendi.");
 	FileManager.dosyaYaz(books);	
 }
-
+/**
+ * Kullanicin girdigi kelimeye gore kitap aramasi yapar.
+ * Kitap isminin icinde aranan kelime geciyorsa sonuclari listeler.
+ * @param arananKelime Aranacak kelime veya kitap adi parcasi
+ */
 public void kitapAra(String arananKelime) {
 	boolean bulundu=false;
 	System.out.println("\n---Arama Sonuçalrı: '"+arananKelime+"'---");
@@ -89,6 +107,10 @@ public void kitapAra(String arananKelime) {
 		System.out.println("Maalesef bu isimde bir kitap bulunamadı.");
 	}
 }
+/**
+ * Sadece kutuphanede mevcut olan (baskasinda olmayan) kitaplari listeler.
+ * Odunc alinmaya musait kitaplari gormek icin kullanilir.
+ */
 public void raftakileriListele() {
 	System.out.println("\n---ŞU An Kiralanabilir Kitaplar---");
 	boolean kitapVar=false;
@@ -102,5 +124,4 @@ public void raftakileriListele() {
 		System.out.println("(!) Tüm kitaplar ödünç verilmiş,rafta kitap kalmadı.!");
 	}
 }
-
 }

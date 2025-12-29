@@ -1,9 +1,16 @@
 package kutuphane.model;
-
+/**
+ * Ogrenci uyeleri temsil eden siniftir.
+ * IMember arayuzunu uygular(Implementation).
+ */
 public class StudentMember implements IMember{
 private String name;
 private int studentId;
-
+/**
+ * Yeni bir ogrenci uyesi olusturur.
+ * @param name Ogrencinin adi
+ * @param studentId Ogrenci numarasi
+ */
 public StudentMember(String name,int studentId) {
 	this.name=name;
 	this.studentId=studentId;

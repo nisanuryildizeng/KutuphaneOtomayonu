@@ -1,4 +1,8 @@
 package kutuphane.model;
+/**
+ * Kutuphanedeki bir kitabı temsil eden model sinifidir.
+ * Kitabin adi ,yazari,sayfa sayisi ve odunc durumunu tutar.
+ */
 public class Kitap{//Encapsulation
 	private int id;
 	private String ad;
@@ -14,7 +18,13 @@ public class Kitap{//Encapsulation
 	public void setOduncAlanKisi(String isim) {
 		this.oduncAlanKisi=isim;
 	}
-	
+	/**
+	 * Yeni bir kitap olusturmak icin kullanilan yapici metot.
+	 * @param id Kitabin numarasi
+	 * @param ad Kitabin adi
+	 * @param yazar Kitabin yazari
+	 * @param sayfaSayisi Kitabin sayfa sayisi
+	 */
 	
 	//Constructor
 	public Kitap(int id,String ad,String yazar,int sayfaSayisi) {
@@ -24,8 +34,12 @@ public class Kitap{//Encapsulation
 		this.sayfaSayisi=sayfaSayisi;
 		this.oduncAlindiMi=false;
 	}
+	/**
+	 * Kitabin odunc durumunu kontrol eder.
+	 * @return Eğer kitap baskasindaysa true,raftaysa false doner.
+	 */
 	
-	//Veri okuma
+	//Veri okuma getter setter kullanimi
 	public int getId() {
 		return id;
 	}
@@ -38,7 +52,10 @@ public class Kitap{//Encapsulation
 	public int getsayfaSayisi() {
 		return sayfaSayisi;
 	}
-	
+	/**
+	 * Kitap bilgilerini CSV dosyasina yazilacak formata cevirir.
+	 * @return Aralarinda noktali virgul olan String verisi
+	 */
 	public String toCSV() {
 		return id+";"+ad+";"+yazar+";"+sayfaSayisi+";"+oduncAlindiMi+";"+oduncAlanKisi;//oduncleri sonradan ekledim.
 	}
@@ -47,11 +64,9 @@ public class Kitap{//Encapsulation
 	public boolean isOduncAlindiMi() {
 		return oduncAlindiMi;
 	}
-	
 	public void setOduncAlindiMi(boolean durum) {
 		this.oduncAlindiMi=durum;
 	}
-	
 	@Override
 	public String toString() {
 		return "Kitap:"+ad+"("+yazar+")";

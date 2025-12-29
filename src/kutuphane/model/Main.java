@@ -1,7 +1,16 @@
 package kutuphane.model;
 import java.util.ArrayList;
 import java.util.Scanner;
+/**
+ * Programin giris noktasidir.
+ * Kullanici menusunu gosterir ve kullanicidan secim alarak sistemi yonetir.
+ */
 public class Main {
+	/**
+	 * Uygulamanin ana metodudur.Program buradan baslar.
+	 * Bir dongu icinde surekli kullaniciya secenekler sunar.
+	 * @param args Komut satiri argumanlari (Kullanilmiyor)
+	 */
 public static void main(String[]args) {
 	LibraryManager manager=new LibraryManager();
 	Scanner scanner=new Scanner(System.in);
@@ -11,12 +20,8 @@ public static void main(String[]args) {
 	ogrenciListesi.add(new StudentMember("Ayşe",102));
 	ogrenciListesi.add(new StudentMember("Ecrin",146));
 	ogrenciListesi.add(new StudentMember("Sema",442));
-	
 	StudentMember aktifOgrenci=null;
 	System.out.println("===SİSTEM BAŞLATILIYOR===");
-	Robot asimo=new Robot(1,"Asimo","Honda");
-	asimo.calis();
-	
 	boolean devamEdelimMi=true;
 	
 	while(devamEdelimMi) {
