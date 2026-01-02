@@ -40,7 +40,7 @@ public static void main(String[]args) {
 		
 		switch(secim) {
 		case 1:
-			manager.listBooks();
+		manager.listBooks();
 			break;
 	    case 2:
 		  System.out.println("Kitap Adı: ");
@@ -128,7 +128,6 @@ public static void main(String[]args) {
 	}
 	
 	Memur memur1=new Memur(2,"Ahmet","Yılmaz");
-	
 	
 	scanner.close();
 }
