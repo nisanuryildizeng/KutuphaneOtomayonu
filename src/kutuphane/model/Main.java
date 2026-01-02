@@ -128,7 +128,7 @@ public static void main(String[]args) {
 	}
 	
 	Memur memur1=new Memur(2,"Ahmet","Yılmaz");
-	memur1.calis();
+	
 	
 	scanner.close();
 }

@@ -20,11 +20,11 @@ public Calisan(int id,String ad,String soyad) {
 	this.soyad=soyad;
 }
 
-public abstract void calis();
+
 /**
  * Calisanin ID numarasini dondurur.
  * @return ID
- */
+ */ 
 public int getId() {
 	return id;
 }
