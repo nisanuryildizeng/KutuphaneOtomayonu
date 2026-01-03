@@ -2,6 +2,7 @@ package kutuphane.model;
 /**
  * Kutuphanedeki bir kitabı temsil eden model sinifidir.
  * Kitabin adi ,yazari,sayfa sayisi ve odunc durumunu tutar.
+ * Encapsulation kullanilarak ,degiskenler private tanimlanmiş ve erisim getter/setter metodlari ile saglanmistir.
  */
 public class Kitap{//Encapsulation
 	private int id;

@@ -3,6 +3,7 @@ package kutuphane.model;
  * Kutuphane calisanlari icin hazirlanmis SOYUT (Abstract) temel siniftir.
  * Bu siniftan dogrudan nesne uretilemez,sadece miras alinabilir.
  * Calisanlarin ortak ozelliklerini (ID,Ad,Soyad) yonetir.
+ * Memur gibi alt siniflara miras verir.
  */
 public abstract class Calisan {
 private int id;

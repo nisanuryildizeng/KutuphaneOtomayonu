@@ -2,6 +2,7 @@ package kutuphane.model;
 /**
  * Ogrenci uyeleri temsil eden siniftir.
  * IMember arayuzunu uygular(Implementation).
+ * Kitap odunc alma islemlerinin yaninda ayni zamanda gec getirme durumlarinda ceza puani takibi yapar.
  */
 public class StudentMember implements IMember{
 private String name;
