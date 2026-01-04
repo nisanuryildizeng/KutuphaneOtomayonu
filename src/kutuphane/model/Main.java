@@ -29,7 +29,7 @@ public static void main(String[]args) {
 		System.out.println("1.Kitapları Listele(CSV DAhil)");
 		System.out.println("2.Yeni kitap ekle");
 		System.out.println("3.Öğrenci kitap ödünç alsın(Demo)");
-		System.out.println("4.Kitap iade et(Ceza Hesapla)");
+		System.out.println("4.Öğrenci kitap iade etsin(Ceza Hesapla)");
 		System.out.println("5.Öğrenci Girişi/Kullancı Değiştir");
 		System.out.println("6.Kitap Ara(İsimle)");
 		System.out.println("7.Sadece Raftakileri Listele");
@@ -56,7 +56,7 @@ public static void main(String[]args) {
 		 break;
 	    case 3:
 	    	if(aktifOgrenci==null) {
-	    		System.out.println("İŞLEM BAŞARISIZ:Lütfen önce 5'e basarak Giriş Ypaınız!");
+	    		System.out.println("İŞLEM BAŞARISIZ:Lütfen önce 5'e basarak Giriş Yapınız!");
 	    		break;
 	    	}
 	    	System.out.println("\n---Hızlı Ödünç Alma Testi---");
@@ -101,7 +101,7 @@ public static void main(String[]args) {
 	    	for(StudentMember ogr:ogrenciListesi) {
 	    		if(ogr.getOgrenciNo()==girilenNo) {
 	    			aktifOgrenci=ogr;
-	    			System.out.println("GİRİŞ BAŞARILI.HOŞGELDİN"+aktifOgrenci.getName());
+	    			System.out.println("GİRİŞ BAŞARILI.Giriş yapılan öğrenci "+aktifOgrenci.getName());
 	    			bulundu=true;
 	    			break;
 	    		}

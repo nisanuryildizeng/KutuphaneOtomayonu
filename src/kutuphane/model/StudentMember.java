@@ -18,11 +18,11 @@ public StudentMember(String name,int studentId) {
 }
 @Override
 public void borrowBook(Kitap book) {
-	System.out.println("Öğrenci"+name+"("+studentId+"),'"+book.getAd()+"'kitabını ödünç aldı.");
+	System.out.println("Öğrenci"+name+"("+studentId+"),'"+book.getAd()+"' kitabını ödünç aldı.");
 }
 @Override
 public void returnBook(Kitap book) {
-	System.out.println("Öğrenci"+name+"("+studentId+"),'"+book.getAd()+"'kitabını iade etti.");
+	System.out.println("Öğrenci"+name+"("+studentId+"),'"+book.getAd()+"' kitabını iade etti.");
 }
 public String getName() {
 	return name;
@@ -30,6 +30,4 @@ public String getName() {
 public int getOgrenciNo() {
 	return studentId;
 }
-
-
 }

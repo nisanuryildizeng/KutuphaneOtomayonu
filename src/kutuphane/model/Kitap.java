@@ -72,4 +72,13 @@ public class Kitap{//Encapsulation
 	public String toString() {
 		return "Kitap:"+ad+"("+yazar+")";
 	}
+	public void setSayfaSayisi(int sayfaSayisi) {
+		if(sayfaSayisi<=0 || sayfaSayisi>10000) {
+			System.out.println("UYARI: "+sayfaSayisi+"sayfa sayısı çok yüksek yanlış sayfa sayısı girmiş olabilirsiniz.");
+			this.sayfaSayisi=-1;
+		}
+		else {
+			this.sayfaSayisi=sayfaSayisi;
+		}
+	}
 }

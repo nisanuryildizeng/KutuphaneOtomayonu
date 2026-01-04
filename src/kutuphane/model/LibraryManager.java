@@ -22,6 +22,9 @@ public LibraryManager() {
  * @param book Eklenecek olan Kitap nesnesi
  */
 public void addBook(Kitap book) {
+	if(book.getsayfaSayisi()== -1) {
+		System.out.println("HATA: Kitap envantere eklenemedi.Çünkü sayfa sayısı kurallara uymuyor.");
+	}
 	books.add(book);
 	System.out.println("System:'"+book.getAd()+"'Kütüphane envanterine eklendi.");
 	FileManager.dosyaYaz(books);
@@ -59,7 +62,7 @@ public void borrowBook(Kitap book,StudentMember student) {
 	else {
 		book.setOduncAlindiMi(true);
 		book.setOduncAlanKisi(student.getName());
-	System.out.println("BAŞARILI: '"+book.getAd()+"'kitabı,"+student.getName()+"kişisine verildi.");
+	System.out.println("BAŞARILI: '"+book.getAd()+"'kitabı,"+student.getName()+" kişisine verildi.");
 	FileManager.dosyaYaz(books);
 }
 }
@@ -74,18 +77,24 @@ public void borrowBook(Kitap book,StudentMember student) {
 public void returnBook(Kitap book,StudentMember student,int gunSayisi) {
 	int izinSure=15;
 	int gunlukCeza=5;
+	//78 ile 82 arası yeni eklendi.
+	if(gunSayisi<0) {
+		System.out.println("HATA: Geçersiz gün sayısı! Gün eksi (-) olmamalı.");
+		System.out.println("İşlem iptal edildi.");
+		return;
+	}
 	
 	if(gunSayisi>izinSure) {
 		int gecikme=gunSayisi-izinSure;
 		int ceza=gecikme*gunlukCeza;
-		System.out.println("Geç İade:!"+gecikme+"gün gecikmişsiniz.");
-		System.out.println("Sayın "+student.getName()+"ödemeniz gereken ceza: "+ceza+"TL");
+		System.out.println("Geç İade:!"+gecikme+" gün gecikmişsiniz.");
+		System.out.println("Sayın "+student.getName()+" ödemeniz gereken ceza: "+ceza+"TL");
 	}
 	else {
-		System.out.println("Teşekkürler "+student.getName()+",kitabı zamanında getirdniz.Ceza yok.");
+		System.out.println("Teşekkürler "+student.getName()+",kitabı zamanında getirdiniz.Ceza yok.");
 	}
 	book.setOduncAlindiMi(false);
-	System.out.println("BAŞARILI: '"+book.getAd()+"'kitabı envantere geri eklendi.");
+	System.out.println("BAŞARILI: '"+book.getAd()+"' kitabı envantere geri eklendi.");
 	FileManager.dosyaYaz(books);	
 }
 /**
@@ -95,7 +104,7 @@ public void returnBook(Kitap book,StudentMember student,int gunSayisi) {
  */
 public void kitapAra(String arananKelime) {
 	boolean bulundu=false;
-	System.out.println("\n---Arama Sonuçalrı: '"+arananKelime+"'---");
+	System.out.println("\n---Arama Sonuçları: '"+arananKelime+"'---");
 	
 	for(Kitap k:books) {
 		if(k.getAd().toLowerCase().contains(arananKelime.toLowerCase())){

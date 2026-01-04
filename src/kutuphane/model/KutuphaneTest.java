@@ -52,4 +52,5 @@ void testZamanindaIade() {
 	manager.returnBook(k, ogr, 15);
 	assertFalse(k.isOduncAlindiMi(),"Sınır gününde (15) iade işlemi başarısız oldu!");
 }
+
 }
