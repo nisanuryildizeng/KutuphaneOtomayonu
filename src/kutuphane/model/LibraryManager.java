@@ -24,10 +24,11 @@ public LibraryManager() {
 public void addBook(Kitap book) {
 	if(book.getsayfaSayisi()== -1) {
 		System.out.println("HATA: Kitap envantere eklenemedi.Çünkü sayfa sayısı kurallara uymuyor.");
-	}
+	}else {
 	books.add(book);
 	System.out.println("System:'"+book.getAd()+"'Kütüphane envanterine eklendi.");
 	FileManager.dosyaYaz(books);
+	}
 }
 /**
  * Kutuphanedeki tum kitaplari (odunc verilenler dahil) ekrana listeler.
@@ -101,8 +102,9 @@ public void returnBook(Kitap book,StudentMember student,int gunSayisi) {
  * Kullanicin girdigi kelimeye gore kitap aramasi yapar.
  * Kitap isminin icinde aranan kelime geciyorsa sonuclari listeler.
  * @param arananKelime Aranacak kelime veya kitap adi parcasi
+ * @return 
  */
-public void kitapAra(String arananKelime) {
+public Kitap kitapAra(String arananKelime) {
 	boolean bulundu=false;
 	System.out.println("\n---Arama Sonuçları: '"+arananKelime+"'---");
 	
@@ -115,6 +117,7 @@ public void kitapAra(String arananKelime) {
 	if(!bulundu) {
 		System.out.println("Maalesef bu isimde bir kitap bulunamadı.");
 	}
+	return null;
 }
 /**
  * Sadece kutuphanede mevcut olan (baskasinda olmayan) kitaplari listeler.

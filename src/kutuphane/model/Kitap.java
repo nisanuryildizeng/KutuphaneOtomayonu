@@ -32,7 +32,8 @@ public class Kitap{//Encapsulation
 		this.id=id;
 		this.ad=ad;
 		this.yazar=yazar;
-		this.sayfaSayisi=sayfaSayisi;
+		//this.sayfaSayisi=sayfaSayisi;
+		setSayfaSayisi(sayfaSayisi);
 		this.oduncAlindiMi=false;
 	}
 	/**
